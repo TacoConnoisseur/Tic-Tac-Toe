@@ -34,7 +34,8 @@ void board()
 void Input()
 {
 	int a;
-	cout << "Choose a space on the board: " << player << " ";
+
+	cout << "Choose a space on the board, Player " << player << ": ";
 	cin >> a;
 
 	a--;
@@ -76,6 +77,7 @@ char winCondition()
 	//player 2's win conditions must be checked for all spaces
 	if (game[0][0] == 'O' && game[0][1] == 'O' && game[0][2] == 'O')
 		return 'O';
+
 	if (game[1][0] == 'O' && game[1][1] == 'O' && game[1][2] == 'O')
 		return 'O';
 	if (game[2][0] == 'O' && game[2][1] == 'O' && game[2][2] == 'O')
@@ -96,12 +98,21 @@ char winCondition()
 	return '/';
 }
 
+
 //The main function
 int main()
 {
 	n = 0;
 	//welcome message
 	cout << "Welcome to Tic Tac Toe!" << endl;
+	system("pause");
+	cout << endl;
+	cout << "Begin by selecting a space using numbers 1-9" << endl;
+	cout << "The top row can be selected using numbers 1-3" << endl;
+	cout << "The middle row can be selected using numbers 4-6" << endl;
+	cout << "The bottom row can be selected using numbers 7-9" << endl;
+	system("pause");
+	cout << endl;
 	//calls tic tac toe board
 	board();
 	//repeats forever until someone wins
@@ -117,13 +128,13 @@ int main()
 		//check win condition after each turn to determine if the game continues
 		if (winCondition() == 'X')
 		{
-			cout << "Player 1 wins!" << endl;
+			cout << "Player X wins!" << endl;
 			//end while(1) after player 1 achieves victory
 			break;
 		}
 		else if (winCondition() == 'O')
 		{
-			cout << "Player 2 wins!" << endl;
+			cout << "Player O wins!" << endl;
 			//ends while(1) after player 2 achieves victory
 			break;
 		}
